@@ -50,7 +50,15 @@ Esto añade `projectId` en `app.config.js`.
 npm run build:apk
 ```
 
-**La primera vez** EAS preguntará: *Generate a new Android Keystore?* → responde **Y** (Yes). Expo guarda la firma en la nube; las siguientes veces ya no pregunta.
+**La primera vez** EAS puede preguntar: *Generate a new Android Keystore?* → responde **Y** (Yes).  
+Si no puedes responder en la terminal, usa (genera el keystore en la nube solo):
+
+```bash
+set CI=true
+npm run build:apk -- --non-interactive
+```
+
+En PowerShell: `$env:CI="true"; npx eas build -p android --profile preview --non-interactive`
 
 Tarda **10–20 minutos**. Al terminar verás un enlace para **descargar el .apk**.
 

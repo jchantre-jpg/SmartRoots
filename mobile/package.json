@@ -15,7 +15,7 @@
     "tunnel:backend": "node scripts/tunnel-backend.js"
   },
   "devDependencies": {
-    "eas-cli": "^16.0.0",
+    "eas-cli": "^19.1.0",
     "localtunnel": "^2.0.2"
   },
   "dependencies": {
