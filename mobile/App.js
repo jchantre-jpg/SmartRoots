@@ -27,6 +27,7 @@ import {
   DEFAULT_API_BASE,
   DEFAULT_WEB_DEV_URL,
   deriveApiBaseFromWebUrl,
+  isExpoGo,
   isLocalhostApi,
   isPublicTunnelUrl,
   readApiBase,
@@ -133,10 +134,15 @@ export default function App() {
     setWebUrl(web);
     setUseBundled(bundled);
 
-    const webFromFlask = await resolveWebAppUri({ apiBase: api });
-    let uri = webFromFlask || normalizeWebAppUri(web?.trim(), api);
-    if (!uri || isExpoMetroRootUrl(uri)) {
-      uri = webFromFlask || normalizeWebAppUri(null, api);
+    let uri;
+    if (!isExpoGo()) {
+      uri = normalizeWebAppUri(web?.trim() || (await readWebUrl()), api);
+    } else {
+      const webFromFlask = await resolveWebAppUri({ apiBase: api });
+      uri = webFromFlask || normalizeWebAppUri(web?.trim(), api);
+      if (!uri || isExpoMetroRootUrl(uri)) {
+        uri = webFromFlask || normalizeWebAppUri(null, api);
+      }
     }
     setWebUri(normalizeWebAppUri(uri, api));
     setBooting(false);

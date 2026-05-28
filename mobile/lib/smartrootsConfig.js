@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 export const AUTH_TOKEN_KEY = 'smartroots.auth.token.v1';
@@ -6,12 +7,28 @@ export const STORAGE_API_BASE = 'smartroots.mobile.apiBase.v1';
 export const STORAGE_WEB_URL = 'smartroots.mobile.webUrl.v1';
 export const STORAGE_USE_BUNDLED = 'smartroots.mobile.useBundled.v1';
 
-/** Backend Flask en el PC (teléfono físico: IP LAN, no 127.0.0.1). */
-export const DEFAULT_API_BASE =
-  Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://127.0.0.1:5000';
+/** `true` en Expo Go; `false` en APK/AAB instalable. */
+export function isExpoGo() {
+  return Constants.appOwnership === 'expo';
+}
 
-/** Vite dev en LAN; cambia a la IP de tu PC si usas Expo Go en teléfono. */
+/** URLs de producción (APK) desde app.config.js → extra. */
+export function getProductionDefaults() {
+  const extra = Constants.expoConfig?.extra || {};
+  return {
+    apiBase: String(extra.apiBase || 'https://jchantre.pythonanywhere.com').replace(/\/$/, ''),
+    webUrl: String(extra.webUrl || 'https://jchantre-jpg.github.io/SmartRoots/').replace(/\/$/, '') + '/',
+  };
+}
+
+const DEV_API_BASE = Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://127.0.0.1:5000';
+
+/** Backend por defecto: nube en APK; localhost en Expo Go. */
+export const DEFAULT_API_BASE = isExpoGo() ? DEV_API_BASE : getProductionDefaults().apiBase;
+
+/** Web por defecto: GitHub Pages en APK; Vite LAN en Expo Go. */
 export const DEFAULT_WEB_DEV_URL = 'http://192.168.0.106:5173';
+export const DEFAULT_WEB_URL = isExpoGo() ? DEFAULT_WEB_DEV_URL : getProductionDefaults().webUrl;
 
 export async function readApiBase() {
   const v = await AsyncStorage.getItem(STORAGE_API_BASE);
@@ -24,7 +41,7 @@ export async function writeApiBase(url) {
 
 export async function readWebUrl() {
   const v = await AsyncStorage.getItem(STORAGE_WEB_URL);
-  return v?.trim() || DEFAULT_WEB_DEV_URL;
+  return v?.trim() || DEFAULT_WEB_URL;
 }
 
 export async function writeWebUrl(url) {

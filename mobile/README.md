@@ -44,6 +44,17 @@ npm run start:tunnel
 | `npm run tunnel:backend` | Publica Flask en Internet (localtunnel) |
 | `npm run build:mobile` | Regenera web empaquetada en `assets/web` |
 
+## APK instalable (sin Expo Go)
+
+Guía completa: **[../docs/BUILD-APK.md](../docs/BUILD-APK.md)**
+
+```bash
+cd SmartRoots/mobile
+npm install
+npx eas login
+npm run build:apk
+```
+
 ## Demo
 
 `demo_smartroots` / `SmartRoots1!`
