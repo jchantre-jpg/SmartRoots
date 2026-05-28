@@ -1,0 +1,17 @@
+# Despliegue gratis del backend en Render (https://render.com)
+# Conecta el repo → New + → Blueprint → selecciona este archivo.
+# Plan free: puede dormir tras ~15 min sin uso; la primera petición tarda unos segundos.
+services:
+  - type: web
+    name: smartroots-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 120
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SMARTROOTS_SECRET
+        generateValue: true

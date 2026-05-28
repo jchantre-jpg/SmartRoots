@@ -7,7 +7,7 @@ GitHub Pages aloja **solo la web** (`frontend/`). El **backend Flask** sigue en 
 | Pieza | Dónde | ¿Tarjeta? |
 |-------|--------|-----------|
 | **Web** | GitHub Pages | No |
-| **API** (`/api/*`) | Tu PC + túnel gratis | No |
+| **API** (`/api/*`) | Render / PythonAnywhere (24/7) o túnel desde tu PC | No |
 | **Móvil** (opcional) | Expo Go → misma URL de la API | No |
 
 ---
@@ -59,9 +59,13 @@ Tu web quedará en:
 
 ---
 
-## 4. Backend gratis sin tarjeta (API)
+## 4. Backend (API)
 
-GitHub Pages **no** ejecuta Python. Opciones sin tarjeta:
+GitHub Pages **no** ejecuta Python.
+
+**Para que funcione sin tu PC:** sigue **[DEPLOY-API-SIN-PC.md](./DEPLOY-API-SIN-PC.md)** (Render o PythonAnywhere).
+
+**Solo para practicar en casa** (PC encendido):
 
 ### A) Cloudflare Tunnel (recomendado)
 
@@ -123,4 +127,4 @@ GitHub Pages  →  interfaz web (siempre online si el repo está en GitHub)
 Túnel / PC    →  API Flask (cuando tu PC está encendido y el túnel activo)
 ```
 
-Para 24/7 sin PC hace falta un host Python (muchas opciones piden tarjeta). Para clase/demo, **Pages + túnel cuando presentas** suele bastar.
+Para 24/7 sin PC usa **Render** o **PythonAnywhere** (ver `DEPLOY-API-SIN-PC.md`). El túnel Cloudflare es solo temporal.
