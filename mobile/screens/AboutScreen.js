@@ -14,6 +14,9 @@ export function AboutScreen() {
         La app móvil usa la misma API Flask que la web. Configura la IP de tu PC en la URL del backend cuando uses Expo Go
         en un teléfono físico.
       </Text>
+      <Text style={{ color: colors.muted, fontSize: 14, lineHeight: 22, marginTop: 16, fontWeight: '600' }}>
+        by Juliana Chantre Astudillo
+      </Text>
     </Card>
   );
 }

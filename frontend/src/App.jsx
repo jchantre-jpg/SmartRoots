@@ -83,6 +83,9 @@ export default function App() {
                       </p>
                     </li>
                   </ul>
+                  <p className="sr-lead-text sr-surface-muted mt-8 border-t border-white/10 pt-6 text-sm">
+                    by <span className="font-semibold text-white/90">Juliana Chantre Astudillo</span>
+                  </p>
                 </section>
               ) : null}
             </div>
