@@ -63,7 +63,7 @@ Tu web quedará en:
 
 GitHub Pages **no** ejecuta Python.
 
-**Para que funcione sin tu PC:** sigue **[DEPLOY-API-SIN-PC.md](./DEPLOY-API-SIN-PC.md)** (Render o PythonAnywhere).
+**Para que funcione sin tu PC:** **[PYTHONANYWHERE-PASO-A-PASO.md](./PYTHONANYWHERE-PASO-A-PASO.md)** (recomendado sin tarjeta) o [DEPLOY-API-SIN-PC.md](./DEPLOY-API-SIN-PC.md) (Render).
 
 **Solo para practicar en casa** (PC encendido):
 
