@@ -106,7 +106,7 @@ Para desarrollo en casa sigue usando `npm start` y Expo Go.
 
 | Problema | Solución |
 |----------|----------|
-| `Not logged in` | `npx eas login` |
-| `projectId` missing | `npx eas init` |
+| `Not logged in` | `npx eas-cli login` |
+| `projectId` missing | `npx eas-cli init` |
 | “Sin API” en el APK | Comprueba https://jchantre.pythonanywhere.com/api/health en el navegador del móvil |
 | Pantalla en blanco | Internet activo; prueba ↻ en la app |

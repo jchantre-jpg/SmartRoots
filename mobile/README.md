@@ -51,7 +51,7 @@ Guía completa: **[../docs/BUILD-APK.md](../docs/BUILD-APK.md)**
 ```bash
 cd SmartRoots/mobile
 npm install
-npx eas login
+npx eas-cli login
 npm run build:apk
 ```
 
