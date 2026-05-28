@@ -9,13 +9,12 @@
     "web": "expo start --web",
     "sync-web": "node scripts/sync-web-assets.js",
     "build:mobile": "npm run build:mobile --prefix ../frontend && npm run sync-web",
-    "build:apk": "eas build -p android --profile preview",
-    "build:apk:prod": "eas build -p android --profile production",
+    "build:apk": "npx eas-cli build -p android --profile preview",
+    "build:apk:prod": "npx eas-cli build -p android --profile production",
     "start:tunnel": "expo start --tunnel",
     "tunnel:backend": "node scripts/tunnel-backend.js"
   },
   "devDependencies": {
-    "eas-cli": "^19.1.0",
     "localtunnel": "^2.0.2"
   },
   "dependencies": {

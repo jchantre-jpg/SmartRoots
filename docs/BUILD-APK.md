@@ -28,7 +28,7 @@ npm install
 ### 2. Iniciar sesión en Expo
 
 ```bash
-npx eas login
+npx eas-cli login
 ```
 
 (Email y contraseña de expo.dev.)
@@ -36,7 +36,7 @@ npx eas login
 ### 3. Vincular el proyecto (solo la primera vez)
 
 ```bash
-npx eas init
+npx eas-cli init
 ```
 
 - Pregunta si crear proyecto → **Yes**.
@@ -58,7 +58,7 @@ set CI=true
 npm run build:apk -- --non-interactive
 ```
 
-En PowerShell: `$env:CI="true"; npx eas build -p android --profile preview --non-interactive`
+En PowerShell: `$env:CI="true"; npx eas-cli build -p android --profile preview --non-interactive`
 
 Tarda **10–20 minutos**. Al terminar verás un enlace para **descargar el .apk**.
 
@@ -80,7 +80,7 @@ También puedes ver el progreso en [expo.dev](https://expo.dev) → tu proyecto 
 |---------|----------|
 | `npm run build:apk` | APK de prueba (descarga directa) |
 | `npm run build:apk:prod` | APK perfil production |
-| `npx eas build:list` | Ver builds anteriores y enlaces |
+| `npx eas-cli build:list` | Ver builds anteriores y enlaces |
 
 ---
 
